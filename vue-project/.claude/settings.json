@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/JavaSE_learning/Springboot_xiangmu/src/main/java/com/example/demo/utils/**)",
+      "Read(//d/JavaSE_learning/Springboot_xiangmu/src/main/java/com/example/demo/config/**)",
+      "Read(//d/JavaSE_learning/Springboot_xiangmu/src/main/java/com/example/demo/interceptor/**)",
+      "Read(//d/JavaSE_learning/Springboot_xiangmu/src/main/java/com/example/demo/controller/**)"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(rm -f src/data/news.js src/components/Carousel.vue src/components/Game/SokobanGame.vue)",
+      "Bash(rmdir -p src/components/Game)",
+      "WebFetch(domain:minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com)"
+    ]
+  }
+}

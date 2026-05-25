@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Source+Code+Pro:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== DESIGN TOKENS - Editorial Magazine Style ===== */
+:root {
+  /* Primary - Deep Forest Green */
+  --primary: #1B4332;
+  --primary-hover: #2D6A4F;
+  --primary-light: #40916C;
+
+  /* Accent - Warm Terracotta */
+  --accent: #E76F51;
+  --accent-hover: #D35400;
+  --accent-light: #F4A261;
+
+  /* Secondary - Sand Gold */
+  --gold: #D4A373;
+  --gold-light: #E9D5C9;
+
+  /* Backgrounds - Warm Off-White */
+  --bg-primary: #FAFAF8;
+  --bg-secondary: #F5F3EF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+
+  /* Text - Deep Charcoal */
+  --text-primary: #1C1C1C;
+  --text-secondary: #4A4A4A;
+  --text-muted: #8C8C8C;
+
+  /* Borders */
+  --border: #E5E2DD;
+  --border-subtle: #F0EDE8;
+  --border-accent: rgba(231, 111, 81, 0.3);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 600ms;
+
+  /* Typography */
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+  --font-body: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Source Code Pro', monospace;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+/* Dark mode - not primary focus for this editorial site */
+[data-theme="dark"] {
+  --primary: #40916C;
+  --primary-hover: #52B788;
+  --primary-light: #74C69D;
+
+  --accent: #F4A261;
+  --accent-hover: #E76F51;
+  --accent-light: #264653;
+
+  --gold: #D4A373;
+
+  --bg-primary: #1A1A1A;
+  --bg-secondary: #242424;
+  --bg-card: #2D2D2D;
+  --bg-elevated: #333333;
+
+  --text-primary: #F5F5F5;
+  --text-secondary: #B8B8B8;
+  --text-muted: #777777;
+
+  --border: #3D3D3D;
+  --border-subtle: #2D2D2D;
+}
+
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== TYPOGRAPHY DEFAULTS ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+/* ===== BACKGROUND ATMOSPHERE ===== */
+.bg-atmosphere {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  z-index: -1;
+}
+
+/* Subtle texture overlay for editorial feel */
+.bg-texture {
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: rgba(231, 111, 81, 0.2);
+  color: var(--text-primary);
+}
+
+/* ===== FOCUS STATES ===== */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-display {
+  font-family: var(--font-display);
+}
+
+.text-body {
+  font-family: var(--font-body);
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+/* Card hover lift effect */
+.card-lift {
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Image zoom on hover */
+.img-zoom {
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.img-zoom:hover {
+  transform: scale(1.03);
+}
+
+/* ===== LEAFLET MAP OVERRIDES ===== */
+.leaflet-container {
+  font-family: var(--font-body);
+  border-radius: var(--radius-lg);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px;
+  font-family: var(--font-body);
+}
+
+/* Custom marker styles */
+.custom-marker {
+  background: var(--primary);
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.custom-marker:hover {
+  transform: scale(1.2);
+}
+
+.custom-marker.active {
+  background: var(--accent);
+  transform: scale(1.2);
+}
